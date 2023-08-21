@@ -253,13 +253,6 @@ class _FotografiaFormUpdateState extends State<FotografiaFormUpdate> {
     );
 
     try {
-      List<Hotel> hotelesExistentes = await _hotelService.getHotels();
-      bool nombreRepetido =
-          hotelesExistentes.any((h) => h.nombre == nuevoHotel.nombre);
-      if (nombreRepetido) {
-        throw Exception('Ya existe un hotel con el mismo nombre.');
-      }
-
       await _hotelService.updateHotelByIndex(widget.hotelId,nuevoHotel);
       print('Disponibilidad: ${widget.disponibilidad.startRange}');
       print('Disponibilidad: ${widget.disponibilidad.endRange}');
